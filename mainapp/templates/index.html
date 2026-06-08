@@ -1,0 +1,447 @@
+{% extends "base.html" %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    .backslider {
+      background-image: url('mainapp/static/img/wall6.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+
+
+    }
+
+    .swiper {
+      width: 100%;
+      padding: 40px 0;
+    }
+
+    .swiper-slide {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .swiper-slide i {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .add {
+      background-image: url("{% static 'img/first.png' %}");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+  {% block main %}
+  <div class="container-fluid pt-0 pb-2">
+    <div class=" p-2 m-4 ">
+      <div class="row align-items-center pb-4" style="background-color: rgb(255, 255, 255);">
+
+        <!-- Left Section -->
+        <div class="col-md-6 p-4 ">
+          <h1 class="fw-bold display-5">
+            Limitless Reading at <br>
+            your <span style="background: #FFD54F; padding: 5px 10px; border-radius: 6px;">fingertips</span>
+          </h1>
+          <p class="text-muted mt-3">
+            Online book selling and marketplace with 5K+ different books & 10M customers.
+            learn or fun by reading different categories of book to help you acquire new knowledges,understanding, etc .
+          </p>
+
+          <!-- Features -->
+          <div class="mt-4">
+            <span class="me-3">✅ Free shipping</span>
+            <span class="me-3">✅ Get offers</span>
+            <span>✅ Get membership</span>
+             <span class="me-3">✅ Easy to return</span> <br>
+            <span>✅ 24/7 Support</span>
+             <span class="me-3">✅ Safe Payment</span>
+            
+          </div>
+
+          <!-- Buttons -->
+          <div class="mt-4">
+            <a href="{% url 'login' %}" class="btn btn-primary px-4 py-2 me-3" >Get Started</a>
+
+          </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="col-md-6 text-center position-relative">
+          <img src="{% static 'img/first .png' %}" alt="student" class="img-fluid" style="max-height: 450px;">
+
+          <!-- Floating Badge Example -->
+          <div class="position-absolute bottom-0 start-50 translate-middle-x bg-light shadow rounded p-2"
+            style="box-shadow: 5px 5px 0px black ;">
+            <small class="fw-bold ">🎉 Congratulations! <br> Your are going to read or learn something new</small>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- start of categories scroller -->
+    <div class="container my-2 p-4 bg-light">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+
+          <!-- Stories -->
+          <div class="swiper-slide justify-content-center">
+            <div class="p-4 rounded text-center" style="background-color: #FFF7E6;">
+              <i class="fas fa-book-open fa-3x text-warning"></i>
+              <h5 class="mt-3 fw-bold">Stories</h5>
+              <p>5K+ Story Books</p>
+            </div>
+          </div>
+
+          <!-- Comedy -->
+          <div class="swiper-slide">
+            <div class="p-4 rounded text-center" style="background-color: #ECEFF1;">
+              <i class="fas fa-laugh-squint fa-3x text-primary"></i>
+              <h5 class="mt-3 fw-bold">Comedy</h5>
+              <p>3K+ Funny Reads</p>
+            </div>
+          </div>
+
+          <!-- Kahani -->
+          <div class="swiper-slide">
+            <div class="p-4 rounded text-center" style="background-color: #F3E8FF;">
+              <i class="fas fa-feather-pointed fa-3x text-purple"></i>
+              <h5 class="mt-3 fw-bold">Kahani</h5>
+              <p>4K+ Traditional Kahani</p>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="swiper-slide">
+            <div class="p-4 rounded text-center" style="background-color: #E0F7FA;">
+              <i class="fas fa-graduation-cap fa-3x text-info"></i>
+              <h5 class="mt-3 fw-bold">Education</h5>
+              <p>10K+ Academic Books</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Navigation & Pagination -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
+
+
+    <!-- card slider   -->
+    <style>
+      .custom-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .custom-hover:hover {
+        transform: translateY(-10px);
+        /* Moves card upward */
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+        /* Adds stronger shadow */
+      }
+    </style>
+    <!-- card Slider 1 -->
+    <div class="row p-3 mt-3">
+      <div class="col-sm-12 mx-auto " style="padding-bottom: 20px;">
+        <div class="heading mb-0 "
+          style="background-color: #fffefdc7; box-shadow: -3px -3px 5px rgb(91, 91, 97) ; margin-top: 20px; ">
+          <h2 class="text-start pt-3 pb-3 mx-4 fw-bolder  "> Featured Books</h2>
+        </div>
+        <div class="card-slider mt-0 "
+          style="background-color: #fffefdc7; box-shadow: -3px 0px 5px rgb(91, 91, 97) ; margin-top: 20px; ">
+          <section class="splide " aria-label="Splide Basic HTML Example">
+            <div class="splide__track">
+              <ul class="splide__list p-4 m-2">
+                {% for b in books %}
+                <li class="splide__slide p-4">
+                  <div class="card text-center justify-content-center p-4 shadow-lg custom-hover h-100">
+                    <a href="{% url 'book_details' id=b.id %}" class="text-decoration-none">
+                      <div class="text-center">
+                        {% if b.cover_image %}
+                        <img src="{{ b.cover_image.url }}" alt="Book Cover" height="250">
+                        {% else %}
+                        <img src="{% static 'img/default_cover.jpg' %}" alt="Default Cover" height="250">
+                        {% endif %}
+                      </div>
+                      <h5 class="m-2">{{ b.title|truncatechars:15 }}</h5>
+                      <h6 class="text-primary me-2">
+                        &#8377; {{ b.price }}
+                        <del class="text-danger">&#8377; {{ b.original_price }}</del>
+                      </h6>
+                    </a>
+
+                    <!-- Keep button outside of the link -->
+                    <form action="{% url 'addtocart' id=b.id %}" method="POST">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-primary btn-sm w-75 mx-auto">Add To Cart</button>
+                    </form>
+                  </div>
+                </li>
+                {% endfor %}
+
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <!-- card slider end -->
+
+    <!-- addbar -->
+    <div class="container-fluid   bg-light p-3">
+      <div class="row p-3 mt-3  rounded-2" style="padding-bottom: 20px; background-color: #219EBC;">
+        <div class="col-sm-6 d-flex align-items-center justify-content-start"
+          style="height: 250px; position: relative; color: #fff; background-color: #219EBC;">
+          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; "></div>
+          <div style="position: relative; z-index: 5; text-align: left; padding-left: 24px;">
+            <h2 class="ms-4">Become a best reader,<br> Buy and Read & Learn </h2>
+            <p class="ms-4">Get 20% off on your first purchase. <br> Use code: <b>WELCOME20</b></p>
+          </div>
+        </div>
+        <div class="col-sm-6 d-flex align-items-center justify-content-end ">
+
+          <a href="{% url 'login' %}" type="button" class="btn btn-outline-warning btn-lg "
+            style="margin-right: 100px;">Start Reading Today</a>
+
+        </div>
+      </div>
+    </div>
+    <!-- addbarend -->
+
+    <!-- cardslider 2 -->
+     <div class="row p-3 mt-3">
+      <div class="col-sm-12 mx-auto bg-light" style="padding-bottom: 20px;">
+        <div class="heading mb-0 "
+          style="background-color: #fffefdc7; box-shadow: -3px -3px 5px rgb(91, 91, 97) ; margin-top: 20px; ">
+          <h2 class="text-start pt-3 pb-3 mx-4 fw-bolder  "> Newest Book</h2>
+        </div>
+        <div class="card-slider mt-0 "
+          style="background-color: #fffefdc7; box-shadow: -3px 0px 5px rgb(91, 91, 97) ; margin-top: 20px; ">
+          <section class="splide " id="slider1" aria-label="Splide Basic HTML Example">
+            <div class="splide__track">
+              <ul class="splide__list p-4 m-2">
+                {% for b in books %}
+                <li class="splide__slide p-4">
+                  <div class="card text-center justify-content-center p-4 shadow-lg custom-hover h-100">
+                    <a href="{% url 'book_details' id=b.id %}" class="text-decoration-none">
+                      <div class="text-center">
+                        {% if b.cover_image %}
+                        <img src="{{ b.cover_image.url }}" alt="Book Cover" height="250">
+                        {% else %}
+                        <img src="{% static 'img/default_cover.jpg' %}" alt="Default Cover" height="250">
+                        {% endif %}
+                      </div>
+                      <h5 class="m-2">{{ b.title|truncatechars:15 }}</h5>
+                      <h6 class="text-primary me-2">
+                        &#8377; {{ b.price }}
+                        <del class="text-danger">&#8377; {{ b.original_price }}</del>
+                      </h6>
+                    </a>
+
+                    <!-- Keep button outside of the link -->
+                    <form action="{% url 'addtocart' id=b.id %}" method="POST">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-primary btn-sm w-75 mx-auto">Add To Cart</button>
+                    </form>
+                  </div>
+                </li>
+                {% endfor %}
+
+
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- review section -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <!-- Feedback Section -->
+
+          <section class="py-5 bg-light">
+            <div class="container">
+              <div class="row align-items-center">
+
+                <!-- Left Side Cards -->
+                <div class="col-lg-7">
+                  <div class="row g-4">
+
+                    <!-- Testimonial 1 -->
+                    <div class="col-md-6">
+                      <div class="card shadow border-0 p-3">
+                        <div class="d-flex align-items-center mb-3">
+                          <img src="{% static 'img/TSL.jpeg' %}" class="rounded me-3" alt="book"
+                            style="width:40px; height:40px; object-fit:cover;">
+                          <h6 class="mb-0">The Silent Library</h6>
+                        </div>
+                        <p class="text-muted">
+                          “A must-read thriller available exclusively in our online bookstore.”
+                        </p>
+                        <div class="text-warning mb-2">
+                          ★★★★★
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Popular Books Box -->
+                    <div class="col-md-6">
+                      <div class="card shadow border-0 p-3">
+                        <h6 class="fw-bold mb-3">Popular Books in Store</h6>
+                        <div class="d-flex align-items-center mb-2">
+                          <img src="{% static 'img/df.jpeg' %}" class="rounded me-2" alt="book"
+                            style="width:32px; height:32px; object-fit:cover;">
+                          <div>
+                            <strong>Digital Fortress</strong><br>
+                            <small class="text-muted">Category: Technology</small>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                          <img src="{% static 'img/tsoe.jpeg' %}" class="rounded me-2" alt="book"
+                            style="width:32px; height:32px; object-fit:cover;">
+                          <div>
+                            <strong>The Science of Everything</strong><br>
+                            <small class="text-muted">Category: Science</small>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          <img src="{% static 'img/hu.jpeg' %}" class="rounded me-2" alt="book"
+                            style="width:32px; height:32px; object-fit:cover;">
+                          <div>
+                            <strong>History Untold</strong><br>
+                            <small class="text-muted">Category: History</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Rating Box -->
+                    <div class="col-md-6">
+                      <div class="card shadow border-0 text-center p-4 bg-primary text-white">
+                        <h4 class="fw-bold">4.8 / 5.0</h4>
+                        <div class="mb-2">★★★★★</div>
+                        <p class="mb-0">Based on 5000+ Readers</p>
+                      </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="col-md-6">
+                      <div class="card shadow border-0 p-3">
+                        <div class="d-flex align-items-center mb-3">
+                          <img src="{% static 'img/foai.jpeg' %}" class="rounded me-3 img-female" alt="book"
+                            style="width:40px; height:40px; object-fit:cover;">
+                          <h6 class="mb-0">Future of AI</h6>
+                        </div>
+                        <p class="text-muted">
+                          “Readers loved how simple yet powerful this book is — top pick in AI category.”
+                        </p>
+                        <div class="text-warning mb-2">
+                          ★★★★☆
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- Right Side Text -->
+                <div class="col-lg-5">
+                  <h2 class="fw-bold">What Readers Say<br>About Our Online Store</h2>
+                  <p class="text-muted">
+                    Thousands of book lovers trust our store for the latest bestsellers, timeless classics, and
+                    exclusive collections.
+                    Explore verified reviews and discover your next favorite read today!
+                  </p>
+                  <a href="#" class="btn btn-primary">Browse All Books</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+        </div>
+      </div>
+    </div>
+    <!-- end of col-sm-6 -->
+  </div>
+
+
+
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        768: { slidesPerView: 2 },
+        1024: { slidesPerView: 3 },
+      }
+    });
+  </script>
+
+  <!-- Splide JS for cardslider 2 (single row) -->
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var splide = new Splide('#slider1', {
+        type: 'loop',
+        perPage: 5,
+        gap: '1rem',
+        autoplay: true,
+        breakpoints: {
+          1024: { perPage: 2 },
+          768: { perPage: 1 }
+        }
+      });
+      splide.mount();
+    });
+  </script>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+  {% endblock %}
+</body>
+
+</html>

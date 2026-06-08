@@ -1,0 +1,25 @@
+{% extends 'userbase.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Search Results{% if query %} for "{{ query }}"{% endif %}</h2>
+    <div class="row">
+        {% if results %}
+            {% for book in results %}
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ book.title }}</h5>
+                            <p class="card-text">Author: {{ book.author }}</p>
+                            <a href="{% url 'book_details' book.id %}" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                <p>No results found.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

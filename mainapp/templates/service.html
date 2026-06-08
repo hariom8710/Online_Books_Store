@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+
+<div class="container mb-4 mt-4 p-4 border border-2 border-primary w-100" style="box-shadow:3px 3px 15px rgba(24, 24, 112, 0.455),-3px -3px 15px rgba(38, 38, 76, 0.455);" >
+  <div class="card-header p-2 mt-0 mb-4 border border-4 border-light text-center " 
+        style="background-color: rgba(145, 207, 255, 0.784);">
+    <h3 style="color: rgb(42, 10, 169); font-weight: 700;">Our Services</h3>
+    <hr class="w-25 mx-auto pt-0 mt-2 bg-dark fw-bolder">
+    <p class="text-muted">We provide the best solutions to meet your needs. Explore our range of services below.</p>
+  </div>
+
+  <div class="row g-4">
+    <!-- Service 1 -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border border-2 border-light">
+        <div class="card-body text-center">
+          <i class="fa-solid fa-book-open fa-2x mb-3 text-primary"></i>
+          <h5 class="card-title fw-bold">Book Store</h5>
+          <p class="card-text text-muted">Find a wide variety of academic and non-academic books at affordable prices.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border border-2 border-light">
+        <div class="card-body text-center">
+          <i class="fa-solid fa-truck fa-2x mb-3 text-primary"></i>
+          <h5 class="card-title fw-bold">Fast Delivery</h5>
+          <p class="card-text text-muted">Get your orders delivered quickly and safely to your doorstep.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 3 -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border border-2 border-light">
+        <div class="card-body text-center">
+          <i class="fa-solid fa-headset fa-2x mb-3 text-primary"></i>
+          <h5 class="card-title fw-bold">Customer Support</h5>
+          <p class="card-text text-muted">24/7 customer support to assist you with queries and issues anytime.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 4 -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border border-2 border-light">
+        <div class="card-body text-center">
+          <i class="fa-solid fa-laptop-code fa-2x mb-3 text-primary"></i>
+          <h5 class="card-title fw-bold">Online Platform</h5>
+          <p class="card-text text-muted">Browse and purchase books easily from our user-friendly online platform.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 5 -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border border-2 border-light">
+        <div class="card-body text-center">
+          <i class="fa-solid fa-percent fa-2x mb-3 text-primary"></i>
+          <h5 class="card-title fw-bold">Discount Offers</h5>
+          <p class="card-text text-muted">Enjoy exciting offers and discounts on your favorite books and bundles.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 6 -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border border-2 border-light">
+        <div class="card-body text-center">
+          <i class="fa-solid fa-shield-halved fa-2x mb-3 text-primary"></i>
+          <h5 class="card-title fw-bold">Secure Payments</h5>
+          <p class="card-text text-muted">Make transactions with confidence using our secure payment gateway.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

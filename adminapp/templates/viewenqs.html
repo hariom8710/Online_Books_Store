@@ -1,0 +1,42 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+
+{% block admin %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 p-0 m-0" style="box-shadow:5px 5px 10px rgba(24, 24, 112, 0.455),-5px -5px 10px rgba(38, 38, 76, 0.455);">
+            <div class="card p-4 mb-0">
+                <div class="heading border border-2 border-light mt-3 mb-3" style="background-color: rgba(159, 201, 237, 0.767);">
+            <h3 class="text-center m-4 p-2 text-primary">Enquries List</h3>
+            </div>
+                <table  class="table text-center justify-content-center table-bordered table-striped table-responsive-sm table-responsive-md table-info " style="border:2px solid blue;">
+                    
+                    <tr>
+                        <th>S. No.</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>ContactNo</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th>Enquiries date</th>
+                        <th>Action</th>
+                    </tr>
+                    {% for e in enqs %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ e.name }}</td>
+                        <td>{{ e.email }}</td>
+                        <td>{{ e.contactnumber }}</td>
+                        <td>{{ e.subject }}</td>
+                        <td>{{ e.message }}</td>
+                        <td>{{ e.enqdate }}</td>
+                        <td>
+                            <a href="{% url 'delenq' id=e.id %}" class="btn btn-primary btn-sm w-100 p-2 ">Delete</a>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

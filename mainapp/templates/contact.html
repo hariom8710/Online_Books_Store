@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+
+<div class="container mb-4 mt-4 p-4 border border-2 border-primary w-100 ">
+  <div class="heading">
+    <h3></h3>
+  </div>
+  <div class="row ">
+    <div class="col-sm-6  ">
+      <div class="heading fs-5 fw-bold ps-2 m-2 ">
+        <h3 style="color: rgb(42, 10, 169);">Get In Touch</h3>
+      </div>
+      <hr class=" pt-0 mt-0 bg-dark fw-bolder">
+      {% if messages %}
+      {% for m in messages %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{m}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endfor %}
+
+      {% endif %}
+
+
+      <form style="width: 100%;" method="post">
+        {% csrf_token %}
+        <!-- Name input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label text-primary fw-bold" for="form4Example1" ">Name</label>
+    <input type=" text" id="form4Example1" name="name" class="form-control" style="background-color: #f9f9faea;" />
+
+        </div>
+
+        <!-- Email input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label text-primary fw-bold" for="form4Example2">Email</label>
+          <input type="email" id="form4Example2" name="email" class="form-control"
+            style="background-color: #f9f9faea;" />
+
+        </div>
+        <!-- Contact no -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label text-primary fw-bold" for="form4Example2">Contact number</label>
+          <input type="number" id="form4Example2" name="contactnumber" class="form-control"
+            style="background-color: #f9f9faea;" />
+
+        </div>
+        <!-- subject -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label text-primary fw-bold" for="form4Example3">Subject</label>
+          <input type="text" id="form4Example1" name="subject" class="form-control"
+            style="background-color: #f9f9faea;" />
+        </div>
+
+        <!-- Message input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+          <label class="form-label text-primary fw-bold" for="form4Example3">Message</label>
+          <textarea class="form-control" name="message" id="form4Example3" rows="4"
+            style="background-color: #f9f9faea;"></textarea>
+
+        </div>
+
+        <!-- Checkbox -->
+        <div class="form-check d-flex justify-content-center mb-4">
+          <input class="form-check-input me-2" type="checkbox" value="" id="form4Example4" checked />
+          <label class="form-check-label text-primary fw-bold" for="form4Example4">
+            Send me a copy of this message
+          </label>
+        </div>
+
+        <!-- Submit button -->
+        <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4 w-100 fw-bold"
+          onclick="contact()">Send</button>
+      </form>
+    </div>
+    <div class="col-sm-6">
+      <div class="heading fs-5 fw-bold ps-2 m-2 ">
+        <h3 style="color: rgb(42, 10, 169);">Contact Information</h3>
+      </div>
+      <hr class=" pt-0 mt-0 bg-dark fw-bolder">
+      <div class="info ms-2 mt-4 ps-2 mb-0 pb-0 border border-2 border-light">
+        <ul class="list-unstyled p-3 ">
+          <li class="my-2"><a href="" class="text-decoration-none ">Telibagh,Brij Vihar, lucknow <br> Uttarpradesh, INDIA</a></li>
+          <li class="my-2"><a href=""></a> <i class="fa-solid fa-phone fa-shake" style="color: #437ee5;"></i> +91 6394702430</li>
+          <li class="my-2"><a href=""></a> <i class="fa-solid fa-phone fa-shake" style="color: #437ee5;"></i> +91 8759303287</li>
+          <li class="my-2"><a href=""></a> <i class="fa-solid fa-envelope fa-bounce" style="color: #246ef0;"></i> akbooks07@gmail.com</li>
+          <li class="my-2"><a href=""></a><strong>branch:</strong>&nbsp; Monday-Friday,10 a.m -10 p.m</li>
+          
+        </ul>
+      </div>
+      <div class=" pt-0 text-center justify-content-center" style="margin: top -10px; ;" >
+       
+                <img src="{% static 'img/wp4863889.webp' %}" alt="" height="60%" width="60%" class="img-fluid" style="mix-blend-mode: multiply;">
+              </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

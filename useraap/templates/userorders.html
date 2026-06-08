@@ -1,0 +1,47 @@
+{% extends 'userbase.html' %}
+{% load static %}
+
+{% block user %}
+
+{% for order in orderitems %}
+ <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card border-primary border-2 "
+            style="box-shadow:3px 3px 15px rgba(24, 24, 112, 0.455),-3px -3px 15px rgba(38, 38, 76, 0.455);">
+            <div class="card-header border border-4 border-light text-center "
+              style="background-color: rgba(145, 207, 255, 0.784);">
+                    <h3>Your Orders are</h3>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsiv">
+                        <table class="table">
+                            <tr class="table-success ">
+                                <td colspan="2"> Order ID - {{ order.first.order.id }}</td>
+                                <td colspan="2" class="text-end me-4"> Order At - {{order.first.order.ordered_at }}</td>
+                            </tr>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Book</th>
+                                <th>Quantity</th>
+                                <th>Prices</th>
+                            </tr>
+                            {% for o in order %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ o.book.title }}</td>
+                                <td>{{ o.quantity }}</td>
+                                <td>{{ o.price }}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+{% empty %}
+<p class="text-center">You haven`t ordered any book yet !</p>
+{% endfor %}
+{% endblock %}

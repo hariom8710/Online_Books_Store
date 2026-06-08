@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main %}
+ <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8 mx-auto mt-4 mb-4">
+            <div class="card border-primary border-2 mx-auto "
+            style="box-shadow:3px 3px 15px rgba(24, 24, 112, 0.455),-3px -3px 15px rgba(38, 38, 76, 0.455);">
+            <div class="card-header border border-4 border-light text-center "
+              style="background-color: rgba(145, 207, 255, 0.784);">
+              <h3 class="fw-bolder text-primary">Book Details</h3>
+            </div>
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                    {% if book.cover_image %}
+                      <img src="{{book.cover_image.url}}" alt="" height="250" class="img-fluid" >
+                      {% else %}
+                      <img src="{% static 'img/default_cover.jpg' %}" alt="" height="250" class="img-fluid">
+                      {% endif %}
+
+                    </div>
+                    <div class="col-sm-8">
+                        <h2>{{book.title}}</h2>
+                        <p>
+                            <b>Author : </b>{{book.author}}
+                            <br>
+                            <b>Category : </b>{{book.category.name}}
+                            <br>
+                            <b>Published Date : </b>{{book.published_date}}
+                            <br>
+                            <b>Language : </b>{{book.language}}
+                            <br>
+                            <h5>
+                                Get it at <span class="text-primary">&#8377; {{book.price}}</span>
+                                <del class="text-danger">&#8377; {{book.original_price}}</del>
+                                <span>{{book.stock}}</span>
+                            </h5>
+                            <form action="{% url 'addtocart' id=book.id %}" method="POST" class="d-flex">
+                              {% csrf_token %}
+                                Quantity : <input type="number" name="quantity" class="form-control mx-3" style="width: 80px;" id="qty" onclick="check()">
+                                <button type="submit" class="btn btn-primary bt-sm " id="addtocart"> Add To Cart </button>
+                            </form>
+                            <span class=" text-danger" id="msg"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+ </div>
+<script>
+    function check()
+    {
+        let qty = parseInt(document.getElementById('qty').value);
+        let stock = parseInt("{{book.stock}}");
+        if(qty>stock)
+        {
+            document.getElementById('msg').innerHTML = `Quantity is exceeded than stock. Only ${stock} books left.`;
+            document.getElementById('addtocart').classList.add('disabled');
+        }
+        else
+        {
+            document.getElementById('msg').innerHTML ="";
+            document.getElementById('addtocart').classList.remove('disabled');
+        }
+    }
+</script>
+{% endblock %}

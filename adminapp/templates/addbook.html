@@ -1,0 +1,71 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+
+{% block admin %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 mx-auto">
+            <div class="card border-primary border-2 " style="box-shadow:3px 3px 15px rgba(24, 24, 112, 0.455),-3px -3px 15px rgba(38, 38, 76, 0.455);">
+                <div class="card-header border border-4 border-light " style="background-color: rgba(145, 207, 255, 0.784);">
+                    <h3 class="text-center text-primary fw-bolder">Add Book</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST"  enctype="multipart/form-data" class="form text-primary"">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="title" class="form-label text-primary">Book Title</label>
+                            <input type="text" name="title" id="title" class="form-control" placeholder="Enter Book Title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="author" class="form-label text-primary">Author</label>
+                            <input type="text" name="author" id="author" class="form-control" placeholder="Enter Author Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="category" class="form-label text-primary">Category</label>
+                            <select name="category" id="category" class="form-select">
+
+                                <option value="" selected disabled>Select Category</option>
+                                {% for cat in cats %}
+                                <option value="{{ cat.id }}">{{ cat.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label text-primary" >Description</label>
+                            <textarea name="description" id="description" class="form-control" placeholder="Enter Book Description"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="original_price" class="form-label text-primary">Original Price</label>    
+                            <input type="number" name="original_price" id="ori_price" step="0.01" class="form-control" placeholder="Enter Original Price" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="form-label text-primary">Price</label>
+                            <input type="number" name="price" id="price" step="0.01" class="form-control" placeholder="Enter Book Price" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="published_date text-primary"> Published Date</label>
+                            <input type="date" name="published_date" id="published_date" class="form-control" placeholder="Enter Published Date" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="language" class="form-label text-primary">Language</label>
+                            <input type="text" name="language" id="language" class="form-control" placeholder="Enter Book Language" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="image" class="form-label text-primary">Cover Image</label>
+                            <input type="file" name="image" id="image" class="form-control-file" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="stock">Stock</label>    
+                            <input type="number" name="stock" id="stock" class="form-control" placeholder="Enter Book Stock" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mt-4 fw-bolder ">Add Book</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

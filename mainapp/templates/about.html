@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+
+<div class="container mb-4 mt-4 p-4 border border-2 border-primary w-100">
+    <div class="card-header p-2 mt-0 border border-4 border-light text-center "
+        style="background-color: rgba(145, 207, 255, 0.784);">
+        <h4 style="color: rgb(42, 10, 169);" class="fw-bolder ">About Us</h4>
+        <hr class="w-25 mx-auto pt-0 mt-0 bg-dark fw-bolder">
+    </div>
+
+    <div class="row align-items-center mt-3 p-2">
+        
+        <!-- Left Section - Image -->
+        <div class="col-sm-6 text-center mb-3">
+            <img src="{% static 'img/aboutus.png' %}" alt="About Us" class="img-fluid rounded shadow"
+                style="max-height: 450px; object-fit: cover; mix-blend-mode: multiply;">
+        </div>
+
+        <!-- Right Section - Text -->
+        <div class="col-sm-6">
+            <h4 class="fw-bold text-primary">Who We Are</h4>
+            <hr class=" mx-auto pe-2 pt-0 mt-0 bg-dark fw-bolder">
+            <p class="text-muted">
+                Welcome to <strong>AK Books</strong>, your trusted destination for books and knowledge.
+                Our mission is to bring learning resources closer to readers and students across India,
+                making education and knowledge accessible to everyone.
+            </p>
+
+            <h4 class="fw-bold text-primary mt-4">Our Mission</h4>
+            <hr class=" mx-auto pe-2 pt-0 mt-0 bg-dark fw-bolder">
+            <p class="text-muted">
+                We believe in the power of knowledge and strive to provide high-quality books at affordable prices.
+                Whether you are a student, a professional, or an avid reader, we aim to serve you with
+                the right resources that inspire growth and success.
+            </p>
+
+            <h4 class="fw-bold text-primary mt-4">Why Choose Us?</h4>
+            <hr class=" mx-auto pe-2 pt-0 mt-0 bg-dark fw-bolder">
+            <ul class="list-unstyled text-muted">
+                <li><i class="fas fa-check-circle me-2" style="color:rgb(10, 180, 61)"></i>Carefully curated selection of over
+                    100,000 titles </li>
+                <li><i class="fas fa-check-circle me-2" style="color:rgb(10, 180, 61)"></i>Competitive prices and regular
+                    promotions </li>
+                <li><i class="fas fa-check-circle me-2" style="color:rgb(10, 180, 61)"></i>Fast and reliable worldwide shipping
+                </li>
+                <li><i class="fas fa-check-circle me-2" style="color:rgb(10, 180, 61)"></i>Expert recommendations from our
+                    book-loving staff </li>
+                <li><i class="fas fa-check-circle me-2" style="color:rgb(10, 180, 61)"></i>Eco-friendly packaging options </li>
+                <li><i class="fas fa-check-circle me-2" style="color:rgb(10, 180, 61)"></i> Wide collection of academic &
+                    non-academic books</li>
+                <li><i class="fas fa-check-circle me-2" style="color:rgb(10, 180, 61)"></i> Trusted and verified sellers</li>
+                <li><i class="fas fa-check-circle me-2" style="color:rgb(10, 180, 61)"></i> Affordable pricing</li>
+                <li><i class="fas fa-check-circle me-2" style="color:rgb(10, 180, 61)"></i> Easy communication and support</li>
+            </ul>
+            <div>
+                <a class="btn btn-primary m-2 rounded-2">Get IN Touch</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vision / Motto Section -->
+    <div class="row mt-5">
+        <div class="col text-center">
+            <div class="p-4 border border-2 rounded  bg-light shadow-sm">
+                <h4 class="fw-bold text-primary">Our Vision</h4>
+                <p class="text-muted ">
+                    To create a community where learning never stops and knowledge is available to everyone, everywhere.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+{% endblock %}

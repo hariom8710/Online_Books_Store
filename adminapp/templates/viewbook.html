@@ -1,0 +1,66 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+
+{% block admin %}
+
+<div class="container p-0 m-0">
+    <div class="row">
+        <div class="col-sm-12 border border-primary mt-3 mb-3" style="box-shadow: 4px 4px 10px rgba(136, 151, 237, 0.701),-4px -4px 10px rgba(136, 136, 237, 0.701);">
+            <div class="card p-1 mt-3 mb-3" >
+                <div class="card-header border border-2 border-light p-0 mt-1 mb-4" style="background-color: rgba(159, 194, 237, 0.767);">
+                    <h2 class="text-center m-4 p-2 text-primary">Books List</h2>
+                </div>
+                <div class="table-responsive p-2 ">
+                <table  class="table  table-bordered text-center justify-content-between  ">
+                    <tr>
+                        <th>S. N.</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Original Price</th>
+                        <th>Price</th>
+                        <th>Published Date</th>
+                        <th>Language</th>
+                        <th>Cover Image</th>
+                        <th>Stock</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
+                        <th>Action</th>
+                    </tr>
+                    {% for b in books %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ b.title }}</td>
+                        <td>{{ b.author }}</td>
+                        <td>{{ b.category }}</td>
+                        <td>{{ b.description }}</td>
+                        <td>{{ b.original_price }}</td>
+                        <td>{{ b.price }}</td>
+                        <td>{{ b.published_date }}</td>
+                        <td>{{ b.language }}</td>
+                       
+                        <td>
+                            {% if b.cover_image %}
+                             <img src="{{ b.cover_image.url }}" alt="Cover" height="80">
+                            {% else %}
+                                No Cover
+                            {% endif %}
+                        </td>
+                        <td>{{ b.stock }}</td>
+                        <td>{{ b.created_at }}</td>
+                        <td>{{ b.updated_at }}</td>
+                        <td>
+                            <a href="{% url 'delbook' id=b.id %}" class="btn btn-primary btn-sm m-1"><i class="ti ti-trash"></i></a>
+                            <a href="{% url 'editbook' id=b.id %}" class="btn btn-danger btn-sm m-1"><i class="ti ti-edit"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                  
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

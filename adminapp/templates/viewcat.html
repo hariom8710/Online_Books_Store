@@ -1,0 +1,35 @@
+{% extends 'adminbase.html' %}
+
+{% load static %}
+{% block admin %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 border border-primary mt-3 mb-3" style="box-shadow: 4px 4px 10px rgba(136, 136, 237, 0.701),-4px -4px 10px rgba(136, 136, 237, 0.701);">
+            <div class="heading border border-2 border-light mt-3 mb-3" style="background-color: rgba(159, 201, 237, 0.767);">
+            <h3 class="text-center m-4 p-2 text-primary">View Category</h3>
+            </div>
+            <div class="card p-4 " style="background-color: rgba(159, 201, 237, 0.767);">
+                <table class="table table-bordered text-center justify-content-between " >
+                    <tr>
+                        <th>S. N.</th>
+                        <th>Category Name</th>
+                        <th>Description</th>
+                        <th>Time</th>
+                        <th>Action</th>
+                    </tr>
+                    {% for c in enqs %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ c.name }}</td>
+                        <td>{{ c.description }}</td>
+                        <td>{{ c.created_at }}</td>
+                        <!-- <td>{{ c.updated_at }}</td> -->
+                        <td><a href="{% url 'delcat' id=c.id %}" class="btn btn-danger btn-sm w-100 p-2">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

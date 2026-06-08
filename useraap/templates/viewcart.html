@@ -1,0 +1,56 @@
+{% extends 'userbase.html' %}
+{% load static %}
+{% block user %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+             <div class="card border-primary border-2 "
+            style="box-shadow:3px 3px 15px rgba(24, 24, 112, 0.455),-3px -3px 15px rgba(38, 38, 76, 0.455);">
+            <div class="card-header border border-4 border-light text-center "
+              style="background-color: rgba(145, 207, 255, 0.784);">
+                    <h3>My Card</h3>
+                </div>
+                <div class="card-body">
+                    {% if items %}
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <th>S.No</th>
+                                <th>Book</th>
+                                <th>Author</th>
+                                <th>Book Price</th>
+                                <th>Quantity</th>
+                                <th>Action</th>
+                            </tr>
+                            {% for i in items %}
+                                <tr>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>{{i.book.title}}</td>
+                                    <td>{{i.book.author}}</td>
+                                    <td>{{i.book.price}}</td>
+                                    <td>{{i.book.quantity}}</td>
+                                    <td>
+                                        <a href="{% url 'removeitems' id=i.id %}" class="btn btn-danger btn-sm">Remove</a>
+                                    
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                                <tr>
+                                    <td colspan="4" class="text-center">
+                                        <h5>Total Amount &#8377; {{total_amount}} </h5>
+                                    </td>
+                                    <td colspan="2" class="text-start">
+                                        <a href="{% url 'checkout' %}" class="btn btn-success btn-sm w-50  ">Place Order</a>
+                                    </td>
+                                </tr>
+                        </table>
+                    </div>
+                    {% else %}
+                        <p class="text-center"> Not items in your cart, <a href="{% url 'index' %}" class=" btn btn-primary ">Go to Homepage</a></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

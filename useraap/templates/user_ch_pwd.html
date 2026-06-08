@@ -1,0 +1,39 @@
+{% extends 'userbase.html' %}
+{% load static %}
+{% block user %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 mx-auto align-items-center justify-content-center">
+            <div class="card border-primary border-2 "
+                style="box-shadow:3px 3px 15px rgba(24, 24, 112, 0.455),-3px -3px 15px rgba(38, 38, 76, 0.455);">
+                <div class="card-header border border-4 border-light text-center "
+                    style="background-color: rgba(145, 207, 255, 0.784);">
+                    <h2>Change Password</h2>
+                </div>
+                <form method="post" class="form p-2">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="old_password" class="form-label">Old Password</label>
+                        <input type="password" class="form-control" id="old_password" name="old_password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="new_password" class="form-label">New Password</label>
+                        <input type="password" class="form-control" id="new_password" name="new_password" required>
+                    </div>
+                    <div class="mb-3 ">
+                        <label for="confirm_password" class="form-label">Confirm Password</label>
+                        <input type="password" name="confirm_password" id="confirm_password" class="form-control"
+                            placeholder="Confirm New Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 btn-sm">Change Password</button>
+                </form>
+                {% if msg %}
+                <div class="alert alert-info mt-3">{{ msg }}</div>
+                {% endif %}
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

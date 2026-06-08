@@ -1,0 +1,12 @@
+body{
+    background-color: #e3edf6;
+    font-family: Arial, sans-serif;
+}
+#sclbk{
+    background-image: url('mainapp/static/img/shell3-1.jpg');
+    background-color: aquamarine;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+
+}

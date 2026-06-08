@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container-fluid m-0 p-0">
+        <div class="row " style="background-color: rgba(4, 196, 255, 0.805); height: 100vh;">
+             
+            <div class="col-sm-4 mx-auto my-auto w-25 border border-1 " style=" height:auto; border-radius: 10px; box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1),-10px -10px 10px  rgba(0, 0, 0, 0.1);">
+               
+                <div class="heading mt-2 p-2 text-center">
+                    <h3 class="text-center text-primary">Admin Login</h3>
+                </div>
+                <hr class=" pt-0 mt-0 bg-dark fw-bolder">
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+                {% endif %}
+                <form method="post" action="{% url 'adminlogin' %}" class="p-4 mt-4 ms-2 me-2 shadow-lg-3">
+                    {% csrf_token %}
+                    <div class="form-floating mb-4 border border-2 border-dark " style="background-color: aliceblue; ">
+                        <input type="text" name="username"  class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">username</label>
+                    </div>
+                    <div class="form-floating mb-4 border border-2 border-dark">
+                        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 border rounded-3 mt-2" onclick="adminlogin()">Login</button>
+                </form>
+                <div style="margin-top: 120px;">
+                    
+                <p class=" mt-4">&copy; 2025 <a href="{% url 'index' %}" class="float-end">Back to Home</a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+
+.rounded-full {
+    border-radius: 100%;
+}
+
+#wrapper {
+    overflow-x: hidden;
+    background-image: linear-gradient(to right, white);
+}
+
+.sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: 0; /* Always visible */
+    transition: margin 0.25s ease-out;
+    width: 15rem;
+}
+
+#wrapper.toggled .sidebar-wrapper {
+    margin-left: -15rem; /* Hide when toggled */
+}
+
+.sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+.sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+#page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+    height: 100px;
+}
+
+#menu-toggle {
+    cursor: pointer;
+}
+
+.list-group-item {
+    border: none;
+    padding: 20px 30px;
+}
+
+.list-group-item.active {
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.fs-1,
+.fs-2,
+.fs-4,
+.fs-5 {
+    color: white;
+}

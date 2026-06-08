@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+<div class="container mt-2 pt-5 pb-5  ">
+  <div class="row">
+    <div class="col-sm-10 mx-auto">
+      <div class="row">
+        <div class="col-sm-6 ">
+          <div class="card border-primary border-2 "
+            style="box-shadow:3px 3px 15px rgba(24, 24, 112, 0.455),-3px -3px 15px rgba(38, 38, 76, 0.455);">
+            <div class="card-header border border-4 border-light text-center "
+              style="background-color: rgba(145, 207, 255, 0.784);">
+              <h3 class="fw-bolder text-primary">Register</h3>
+            </div>
+            <div class="card-body">
+              {% if messages %}
+              {% for m in messages %}
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{m}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              {% endfor %}
+
+              {% endif %}
+              <form method="POST" class="form text-primary">
+                {% csrf_token %}
+                <div class="mb-3">
+                  <label for="username" class="form-label">Username</label>
+                  <input type="text" name="name" id="username" class="form-control" placeholder="Enter Username"
+                    required>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" name="email" id="email" class="form-control" placeholder="Enter Email" required>
+                </div>
+                <div class="mb-3">
+                  <label for="contact" class="form-label">Contact</label>
+                  <input type="number" name="contactnumber" id="contact" class="form-control"
+                    placeholder="Enter contact number" required>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password"
+                    required>
+                </div>
+                <div class="mb-3">
+                  <label for="c_password" class="form-label">Confirm Password</label>
+                  <input type="password" name="confirm_password" id="c_password" class="form-control"
+                    placeholder="Enter password again" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 p-2">Register</button>
+                <div class="text-center">
+                  <p>Not a member? <a href="{% url 'register' %}">Register</a></p>
+                  <p>or sign up with:</p>
+                  <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                    <i class="fab fa-facebook-f"></i>
+                  </button>
+
+                  <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                    <i class="fab fa-google"></i>
+                  </button>
+
+                  <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                    <i class="fab fa-twitter"></i>
+                  </button>
+
+                  <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                    <i class="fab fa-github"></i>
+                  </button>
+                </div>
+                <div class="already">
+                  <p>If already have a account- <a class="text-decoration-none text-primary"
+                      href="{% url 'login' %}">Login</a></p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- right area  -->
+        <div class="col-sm-6 ps-3  h-auto">
+          <div class="row">
+            <div class="card" style="background-color: rgb(203, 231, 255); height: 727px;">
+              <div class="card-header  mt-2 text-primary border border-4 border-primary rounded-2">
+                <h3 class="m-2 p-2">Why Register <i class="fa-solid fa-question" style="color: #246ef0;"></i> </h3>
+              </div>
+              <div class="card-body mt-3  ">
+                <ul class="list-unstyled">
+                  <li class="mb-3">
+                    <h5><i class="fas fa-tag " style="color: #0b5ff1;"></i> Exclusive Discount</h5>
+                    <p class="mt-0 ms-4 pt-0 ">Get Members-Only Deals And Promotion</p>
+                  </li>
+                  <li class="mb-3">
+                    <h5><i class="fas fa-shipping-fast" style="color: #0b5ff1;"></i> Faster CheckOut</h5>
+                    <p class="mt-0 ms-4 pt-0">Save your details for quick purchases</p>
+                  </li>
+                  <li class="mb-3">
+                    <h5><i class="fas fa-heart " style="color: #0b5ff1;"></i> Wishlist</h5>
+                    <p class="mt-0 ms-4 pt-0">Save books you love for later</p>
+                  </li>
+                  <li class="mb-3">
+                    <h5> <i class="fas fa-history " style="color: #0b5ff1;"></i> Order History</h5>
+                    <p class="mt-0 ms-4 pt-0">Track all your past purchases</p>
+                  </li>
+
+                  </p>
+                  </li>
+                </ul>
+              </div>
+              <div class=" mt-0  text-center justify-content-center">
+                <img src="{% static 'img/books-1673578_1280.webp' %}" alt="" height="60%" width="60%" class="img-fluid" style="mix-blend-mode: multiply;">
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}
