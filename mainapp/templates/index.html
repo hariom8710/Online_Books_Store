@@ -163,53 +163,64 @@
         /* Adds stronger shadow */
       }
     </style>
-    <!-- card Slider 1 -->
+    <!-- card Slider 1 --> 
     <div class="row p-3 mt-3">
-      <div class="col-sm-12 mx-auto " style="padding-bottom: 20px;">
-        <div class="heading mb-0 "
-          style="background-color: #fffefdc7; box-shadow: -3px -3px 5px rgb(91, 91, 97) ; margin-top: 20px; ">
-          <h2 class="text-start pt-3 pb-3 mx-4 fw-bolder  "> Featured Books</h2>
-        </div>
-        <div class="card-slider mt-0 "
-          style="background-color: #fffefdc7; box-shadow: -3px 0px 5px rgb(91, 91, 97) ; margin-top: 20px; ">
-          <section class="splide " aria-label="Splide Basic HTML Example">
-            <div class="splide__track">
-              <ul class="splide__list p-4 m-2">
-                {% for b in books %}
-                <li class="splide__slide p-4">
-                  <div class="card text-center justify-content-center p-4 shadow-lg custom-hover h-100">
-                    <a href="{% url 'book_details' id=b.id %}" class="text-decoration-none">
-                      <div class="text-center">
-                        {% if b.cover_image %}
-                        <!-- <img src="{{ b.cover_image.url }}" alt="Book Cover" height="250"> -->
-                        <img src="{{ b.cover_image.url }}" data-default="{% static 'img/default_cover.jpg' %}"
-                          onerror="this.src=this.dataset.default;" alt="Book Cover" height="250">
-                        {% else %}
-                        <img src="{% static 'img/default_cover.jpg' %}" alt="Default Cover" height="250">
-                        {% endif %}
-                      </div>
-                      <h5 class="m-2">{{ b.title|truncatechars:15 }}</h5>
-                      <h6 class="text-primary me-2">
-                        &#8377; {{ b.price }}
-                        <del class="text-danger">&#8377; {{ b.original_price }}</del>
-                      </h6>
-                    </a>
-
-                    <!-- Keep button outside of the link -->
-                    <form action="{% url 'addtocart' id=b.id %}" method="POST">
-                      {% csrf_token %}
-                      <button type="submit" class="btn btn-primary btn-sm w-75 mx-auto">Add To Cart</button>
-                    </form>
-                  </div>
-                </li>
-                {% endfor %}
-
-              </ul>
-            </div>
-          </section>
-        </div>
-      </div>
+  <div class="col-sm-12 mx-auto bg-light" style="padding-bottom: 20px;">
+    
+    <div class="heading mb-0" style="background-color: #fffefdc7; box-shadow: -3px -3px 5px rgb(91, 91, 97); margin-top: 20px;">
+      <h2 class="text-start pt-3 pb-3 mx-4 fw-bolder">Featured Books</h2>
     </div>
+    
+    <div class="card-slider mt-0" style="background-color: #fffefdc7; box-shadow: -3px 0px 5px rgb(91, 91, 97); margin-top: 20px;">
+      <section class="splide" id="featured-slider" aria-label="Splide Basic HTML Example">
+        <div class="splide__track">
+          <ul class="splide__list p-4 m-2">
+            
+            {% for b in books %}
+            <li class="splide__slide p-2 p-md-3">
+              <div class="card text-center shadow-lg custom-hover h-auto d-flex flex-column" style="overflow: hidden;">
+                
+                <a href="{% url 'book_details' id=b.id %}" class="text-decoration-none text-dark d-flex flex-column h-50">
+                  
+                  <div class="p-3 d-flex align-items-center justify-content-center" style="height: 220px; width: 100%;">
+                    {% if b.cover_image %}
+                    <img src="{{ b.cover_image.url }}" data-default="{% static 'img/default_cover.jpg' %}"
+                      onerror="this.src=this.dataset.default;" alt="Book Cover" 
+                      style="max-height: 100%; max-width: 100%; object-fit: contain;">
+                    {% else %}
+                    <img src="{% static 'img/default_cover.jpg' %}" alt="Default Cover" 
+                      style="max-height: 100%; max-width: 100%; object-fit: contain;">
+                    {% endif %}
+                  </div>
+                  
+                  <div class="card-body p-2 d-flex flex-column mt-auto mb-auto flex-grow-1">
+                    <h5 class="m-2">{{ b.title|truncatechars:15 }}</h5>
+                    <h6 class="text-primary m-0 mb-2">
+                      &#8377; {{ b.price }}
+                      <del class="text-muted" style="font-size: 0.9em;">&#8377; {{ b.original_price }}</del>
+                    </h6>
+                  </div>
+                </a>
+
+                <div class="card-footer bg-white border-0 p-2 pt-0 mt-auto">
+                  <form action="{% url 'addtocart' id=b.id %}" method="POST" class="w-100">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary btn-sm w-100">Add To Cart</button>
+                  </form>
+                </div>
+                
+              </div>
+            </li>
+            {% endfor %}
+
+          </ul>
+        </div>
+      </section>
+    </div>
+    
+  </div>
+</div>
+   
     <!-- card slider end -->
 
     <!-- addbar -->
@@ -428,20 +439,38 @@
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var splide = new Splide('#slider1', {
-        type: 'loop',
-        perPage: 5,
-        gap: '1rem',
-        autoplay: true,
-        breakpoints: {
-          1024: { perPage: 2 },
-          768: { perPage: 1 }
+  document.addEventListener('DOMContentLoaded', function () {
+    
+    // Configuration for responsiveness
+    var splideConfig = {
+      type   : 'loop',
+      perPage: 4, // Number of cards on desktop
+      perMove: 1,
+      gap    : '1.5rem',
+      breakpoints: {
+        1024: {
+          perPage: 3, // Number of cards on tablets
+        },
+        768: {
+          perPage: 2, // Number of cards on large phones
+        },
+        480: {
+          perPage: 1, // Number of cards on small phones
         }
-      });
-      splide.mount();
-    });
-  </script>
+      }
+    };
+
+    // Initialize Slider 1 (Featured Books)
+    var featuredSlider = new Splide('#featured-slider', splideConfig);
+    featuredSlider.mount();
+
+    // Initialize Slider 2 (Newest Books)
+    // Note: ensure your second slider's ID matches this target ('#slider1')
+    var newestSlider = new Splide('#slider1', splideConfig);
+    newestSlider.mount();
+    
+  });
+</script>
 
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
