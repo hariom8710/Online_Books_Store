@@ -71,15 +71,15 @@
             <span class="me-3">✅ Free shipping</span>
             <span class="me-3">✅ Get offers</span>
             <span>✅ Get membership</span>
-             <span class="me-3">✅ Easy to return</span> <br>
+            <span class="me-3">✅ Easy to return</span> <br>
             <span>✅ 24/7 Support</span>
-             <span class="me-3">✅ Safe Payment</span>
-            
+            <span class="me-3">✅ Safe Payment</span>
+
           </div>
 
           <!-- Buttons -->
           <div class="mt-4">
-            <a href="{% url 'login' %}" class="btn btn-primary px-4 py-2 me-3" >Get Started</a>
+            <a href="{% url 'login' %}" class="btn btn-primary px-4 py-2 me-3">Get Started</a>
 
           </div>
         </div>
@@ -232,7 +232,7 @@
     <!-- addbarend -->
 
     <!-- cardslider 2 -->
-     <div class="row p-3 mt-3">
+    <div class="row p-3 mt-3">
       <div class="col-sm-12 mx-auto bg-light" style="padding-bottom: 20px;">
         <div class="heading mb-0 "
           style="background-color: #fffefdc7; box-shadow: -3px -3px 5px rgb(91, 91, 97) ; margin-top: 20px; ">
@@ -249,7 +249,9 @@
                     <a href="{% url 'book_details' id=b.id %}" class="text-decoration-none">
                       <div class="text-center">
                         {% if b.cover_image %}
-                        <img src="{{ b.cover_image.url }}" alt="Book Cover" height="250">
+                        <!-- <img src="{{ b.cover_image.url }}" alt="Book Cover" height="250"> -->
+                        <img src="{{ b.cover_image.url }}" data-default="{% static 'img/default_cover.jpg' %}"
+                          onerror="this.src=this.dataset.default;" alt="Book Cover" height="250">
                         {% else %}
                         <img src="{% static 'img/default_cover.jpg' %}" alt="Default Cover" height="250">
                         {% endif %}
@@ -278,7 +280,7 @@
       </div>
     </div>
 
-    
+
     <!-- review section -->
     <div class="container-fluid">
       <div class="row">
