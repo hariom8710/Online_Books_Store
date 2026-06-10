@@ -181,7 +181,9 @@
                     <a href="{% url 'book_details' id=b.id %}" class="text-decoration-none">
                       <div class="text-center">
                         {% if b.cover_image %}
-                        <img src="{{ b.cover_image.url }}" alt="Book Cover" height="250">
+                        <!-- <img src="{{ b.cover_image.url }}" alt="Book Cover" height="250"> -->
+                        <img src="{{ b.cover_image.url }}" data-default="{% static 'img/default_cover.jpg' %}"
+                          onerror="this.src=this.dataset.default;" alt="Book Cover" height="250">
                         {% else %}
                         <img src="{% static 'img/default_cover.jpg' %}" alt="Default Cover" height="250">
                         {% endif %}
